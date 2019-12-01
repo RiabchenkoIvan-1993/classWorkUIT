@@ -4,6 +4,7 @@ package com.company;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.*;
+import java.util.stream.Collectors;
 
 import static java.lang.System.out;
 
@@ -25,12 +26,12 @@ public class Main {
     static HashSet<String> v = new HashSet<>(new ArrayList<>(Arrays.asList("1", "fd", "5", "5")));
 
     public static void main(String[] args) throws IOException, ClassNotFoundException {
-        final HashMap<String, Double> hm = new HashMap<>();
-        hm.put("Joe",new Double(3051.2));
-        hm.put("Bill",new Double(3078.2));
-        hm.put("Ivan",new Double(34551.2));
+        /*TreeMap<String, Double> hm = new TreeMap<>();
+        hm.put("Joe",new Double(53051.2));
+        hm.put("Ivan",new Double(3078.2));
+        hm.put("Bill",new Double(34551.2));
 
-        final Set<Map.Entry<String, Double>> set = hm.entrySet();
+        Set<Map.Entry<String, Double>> set = hm.entrySet();
         for (Map.Entry<String, Double> me : set) {
             out.print(me.getKey()+": ");
             out.println(me.getValue());
@@ -38,12 +39,28 @@ public class Main {
         out.println();
         double balance=hm.get("Joe");
         hm.put("Joe", balance + 1000);
-        out.println("joes new balance: "+hm.get("Joe"));
-        /*TreeSet<Girl> girls = new TreeSet<Girl>(new NameCompareGirl());
+        out.println("joes new balance: "+hm.get("Joe"));*/
+
+        ArrayList<Girl> girls = new ArrayList<Girl>();
         girls.add(new Girl("Ira",45));
         girls.add(new Girl("Hua",45));
         girls.add(new Girl("Ira",12));
-        out.println(girls);*/
+        ArrayList<Girl> girls1 = new ArrayList<Girl>();
+        girls.add(new Girl("Ira",45));
+        girls.add(new Girl("Tua",45));
+        girls.add(new Girl("Mra",12));
+        out.println(girls);
+        out.println(girls1);
+        out.println(Collections.disjoint(girls1, girls));
+        out.println( Collections.frequency(girls,new Girl("Ira",45)));
+        out.println( Collections.min(girls));
+//        Collection<Girl> girls1 = Collections.unmodifiableCollection(girls);
+//        girls1.add(new Girl("Iradddd",142));
+//        out.println(girls1);
+//        Collections.reverse(girls);
+//        out.println(girls);
+//        Collections.shuffle(girls);
+//        out.println(girls);
         /*ArrayList<String> strings = new ArrayList<>();
         strings.add("asfwef");
         strings.add("www");
