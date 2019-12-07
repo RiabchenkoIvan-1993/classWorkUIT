@@ -5,11 +5,14 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 import static java.lang.System.out;
 
 public class Main {
-    HashSet<String> a = new HashSet<String>() {{
+
+    /*HashSet<String> a = new HashSet<String>() {{
         add("45sdf");
         add("45sdf");
         add("45sdf");
@@ -20,12 +23,56 @@ public class Main {
         b.add("45sdf");
         b.add("45sdf");
         b.add("45sdf");
-    }
+    }*/
 
-    ArrayList<String> arrayList = new ArrayList<>(Arrays.asList("1", "fd", "5"));
+    /*ArrayList<String> arrayList = new ArrayList<>(Arrays.asList("1", "fd", "5"));
     static HashSet<String> v = new HashSet<>(new ArrayList<>(Arrays.asList("1", "fd", "5", "5")));
+*/
+    public static void main(String[] args) throws IOException, ClassNotFoundException, InterruptedException {
+         MyThread myThread = new MyThread();
+        myThread.start();
+        MyThread myThread1 = new MyThread();
+        myThread1.start();
+        out.println("Thread 1"+myThread.isAlive());
+        out.println("Thread 1"+myThread1.isAlive());
+        myThread.join();
+        myThread1.join();
+        out.println("Thread 1"+myThread.isAlive());
+        out.println("Thread 1"+myThread1.isAlive());
+        /*new Thread(()->{Thread thread1 = Thread.currentThread();
+            out.println("ID = " + thread1.getId());
+            out.println("Name = " + thread1.getName());
+            out.println("Priority = " + thread1.getPriority());
+            out.println("State = " + thread1.getState());}).start();
+        new Thread(()->{Thread thread1 = Thread.currentThread();
+            out.println("ID = " + thread1.getId());
+            out.println("Name = " + thread1.getName());
+            out.println("Priority = " + thread1.getPriority());
+            out.println("State = " + thread1.getState());}).start();*/
 
-    public static void main(String[] args) throws IOException, ClassNotFoundException {
+        /*Stream<Date> stream =Stream.generate(() -> {return new Date();}).limit(10);
+        final List<Date> collect = stream.collect(Collectors.toList());
+        out.println(collect);*/
+
+        /*Stream.of("a1","a2","a3")
+                .map(s->s.substring(1))
+                .mapToInt(Integer::parseInt)
+                .max()
+                .ifPresent(out::println);
+
+        IntStream.range(1,4)
+                .mapToObj(i->"a"+i)
+                .forEach(out::println);*/
+
+        /*List<String> myList = Arrays.asList("a1", "a2", "b1", "b2", "c1", "c2");
+myList
+        .stream()
+        .filter(s->s.startsWith("c"))
+        .map(String::toUpperCase)
+        .sorted()
+        .forEach(out::println);*/
+        //        EnumSet<Faculty> set1 = EnumSet.range(Faculty.MMF,Faculty.GEO);
+
         /*TreeMap<String, Double> hm = new TreeMap<>();
         hm.put("Joe",new Double(53051.2));
         hm.put("Ivan",new Double(3078.2));
@@ -39,7 +86,7 @@ public class Main {
         out.println();
         double balance=hm.get("Joe");
         hm.put("Joe", balance + 1000);
-        out.println("joes new balance: "+hm.get("Joe"));*/
+        out.println("joes new balance: "+hm.get("Joe"));*//*
 
         ArrayList<Girl> girls = new ArrayList<Girl>();
         girls.add(new Girl("Ira",45));
@@ -53,7 +100,8 @@ public class Main {
         out.println(girls1);
         out.println(Collections.disjoint(girls1, girls));
         out.println( Collections.frequency(girls,new Girl("Ira",45)));
-        out.println( Collections.min(girls));
+        out.println( Collections.min(girls));*/
+
 //        Collection<Girl> girls1 = Collections.unmodifiableCollection(girls);
 //        girls1.add(new Girl("Iradddd",142));
 //        out.println(girls1);
